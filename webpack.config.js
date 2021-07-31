@@ -78,5 +78,15 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     hot: true,
-  }
+    after: function(app, server, compiler) {
+      console.log()
+      console.log(` _|_|_|    _|_|_|_|  _|      _|    _|_|_|  _|_|_| `)
+      console.log(` _|    _|  _|        _|_|    _|  _|          _|   `)
+      console.log(` _|_|_|    _|_|_|    _|  _|  _|  _|          _|   `)
+      console.log(` _|    _|  _|        _|    _|_|  _|          _|   `)
+      console.log(` _|    _|  _|_|_|_|  _|      _|    _|_|_|  _|_|_| `)
+      console.log(`\n`)
+    },
+  },
+
 }
