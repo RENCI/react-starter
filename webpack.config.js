@@ -37,7 +37,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
         // type:
         //   "asset/inline": base-64 inline images in js bundle
         //   "asset/resource": images will be imported as separate resources

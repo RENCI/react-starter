@@ -13,7 +13,7 @@ The following are set up by default:
 - Hot module replacement
 - React
 - React Refresh
-- Image support (png, jpg, jpeg, gif, svg)
+- Image support (png, jpg, jpeg, gif, svg, webp)
 
 In addition, this project will contain the branding resources for RENCI and UNC, which we also often require.
 
