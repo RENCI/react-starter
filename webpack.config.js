@@ -3,6 +3,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const DotenvPlugin = require('dotenv-webpack')
 
 let mode = 'development'
 let target = 'web'
@@ -13,6 +14,10 @@ const plugins = [
     template: './src/index.html',
     favicon: './src/images/favicon.png',
   }),
+  new DotenvPlugin({
+    path: './.env', // Path to .env file (this is the default)
+    safe: true, // load .env.example (defaults to "false" which does not use dotenv-safe)
+  })
 ]
 
 if (process.env.NODE_ENV === 'production') {
