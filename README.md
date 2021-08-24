@@ -14,6 +14,7 @@ The following are set up by default:
 - React
 - React Refresh
 - Image support (png, jpg, jpeg, gif, svg, webp)
+- ESLint
 
 In addition, this project will contain the branding resources for RENCI and UNC, which we also often require.
 
