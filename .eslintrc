@@ -9,11 +9,6 @@
   },
   "parser": "@babel/eslint-parser",
   "parserOptions": {
-//     "sourceTypes": "module",
-//     "allowImportExportEverywhere": false,
-//     "ecmaFeatures": {
-//       "globalReturn" : false
-//     },
     "babelOptions": {
       "configFile": "./babel.config.js"
     }
@@ -32,38 +27,3 @@
     "react/react-in-jsx-scope": "off"
   }
 }
-
-// {
-//   "plugins": [
-//     "react"
-//   ],
-//   "settings": {
-//     "react": {
-//       "version": "detect"
-//     },
-//   },
-//   "parser": "@babel/eslint-parser",
-//   "parserOptions": {
-//     "sourceTypes": "module",
-//     "allowImportExportEverywhere": false,
-//     "ecmaFeatures": {
-//       "globalReturn" : false
-//     },
-//     "babelOptions": {
-//       "configFile": "./babel.config.js"
-//     }
-//   },
-//   "env": {
-//     "es6":   true,
-//     "browser": true,
-//     "node":  true,
-//   },
-//   "extends": [
-//     "eslint:recommended",
-//     "plugin:react/recommended"
-//   ],
-//   "rules": {
-//     "no-unused-vars": "warn",
-//     "react/react-in-jsx-scope": "off"
-//   }
-// }
