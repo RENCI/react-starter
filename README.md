@@ -49,6 +49,30 @@ You're ready to begin development. Move into your project directory, and start a
 
 Note that this development environment utilizes [hot-module-replacement](https://webpack.js.org/guides/hot-module-replacement/) and [react-refresh](https://github.com/pmmmwh/react-refresh-webpack-plugin) for optimal developer experience.
 
+#### Environment Variables
+
+Use a `.env` file to pass environment-specific variables into the application. Use the invluded `sample.env` file as a to model to get started.
+
+Copy this `sample.env` file
+
+```shell
+cp sample.env .env
+```
+
+to get started with this `.env` file.
+
+**.env**
+```
+SAMPLE_VARIABLE=this-is-an-environment-variable
+```
+
+Then the environment variables can be used in the React application in the following manner.
+
+```js
+const { SAMPLE_VARIABLE } = process.env
+
+console.log(SAMPLE_VARIABLE) // this-is-an-environment-variable
+```
 
 ### 🎁 Building for Production
 
