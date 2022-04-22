@@ -3,7 +3,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const DotenvPlugin = require('dotenv-webpack')
+// const DotenvPlugin = require('dotenv-webpack')
 const ESLintPlugin = require('eslint-webpack-plugin')
 
 let mode = 'development'
@@ -15,10 +15,10 @@ const plugins = [
     template: './src/index.html',
     favicon: './src/images/favicon.png',
   }),
-  new DotenvPlugin({
-    path: './.env', // Path to .env file (this is the default)
-    safe: true, // load .env.example (defaults to "false" which does not use dotenv-safe)
-  }),
+  // new DotenvPlugin({
+  //   path: './.env', // Path to .env file (this is the default)
+  //   safe: true, // load .env.example (defaults to "false" which does not use dotenv-safe)
+  // }),
   new ESLintPlugin({
     extensions: ['./src', 'js'],
   }),
@@ -85,9 +85,12 @@ module.exports = {
   devtool: 'source-map',
 
   devServer: {
-    contentBase: './dist',
     hot: true,
-    after: function(app, server, compiler) {
+    static: path.resolve(__dirname, 'dist'),
+    setupMiddlewares: (middlewares, devServer) => {
+      if (!devServer) {
+        throw new Error('webpack-dev-server is not defined')
+      }
       console.log()
       console.log(` _|_|_|    _|_|_|_|  _|      _|    _|_|_|  _|_|_| `)
       console.log(` _|    _|  _|        _|_|    _|  _|          _|   `)
@@ -95,6 +98,7 @@ module.exports = {
       console.log(` _|    _|  _|        _|    _|_|  _|          _|   `)
       console.log(` _|    _|  _|_|_|_|  _|      _|    _|_|_|  _|_|_| `)
       console.log(`\n`)
+      return middlewares
     },
   },
 
