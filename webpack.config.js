@@ -86,6 +86,9 @@ module.exports = {
 
   devServer: {
     hot: true,
+    client: {
+      overlay: false,
+    },
     static: path.resolve(__dirname, 'dist'),
     setupMiddlewares: (middlewares, devServer) => {
       if (!devServer) {
