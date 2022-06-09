@@ -1,5 +1,4 @@
-import { DemoComponent } from './demo-component'
-import './app.scss'
+import { DemoComponent } from './components/demo-component'
 
 export const App = () => {
   return (
