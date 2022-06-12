@@ -2,82 +2,54 @@
 
 This React application boilerplate contains an initial configuration common to the many of the web applications built at/by/for RENCI.
 
-The following are set up by default:
-
-- Webpack 5
-- Babel
-- CSS
-- SCSS
-- PostCSS
-- Source Maps
-- Hot module replacement
-- React
-- React Refresh
-- Image support (png, jpg, jpeg, gif, svg, webp)
-- ESLint
-
-In addition, this project will contain the branding resources for RENCI and UNC, which we also often require.
+The following are set up by default: Webpack 5, Babel, CSS, SCSS, Source Maps, Hot module replacement, React, Image support (png, jpg, jpeg, gif, svg, webp), and ESLint. For a more complete set of dependencies, consults the `package.json` file. In addition, this starter comes with the branding resources for RENCI and UNC, which we also often require.
 
 ### 🚀 Get Started
 
-There are lots of ways to get started.
-
-1. git clone
-
-```shell
-git clone https://github.com/renci/react-starter
-```
-
-2. [Create RENCI App](https://github.com/RENCI/create-renci-app)
-
-This is a Node CLI tool that aims to streamline the web application bootstrapping process. Head over to [RENCI/create-renci-app](https://github.com/RENCI/create-renci-app) to check it out!
-
-3. [degit](https://www.npmjs.com/package/degit)
-
-_Create RENCI App_ leverages degit, and it can just be used directly. This is a nice option if you'd prefer to not bring along the git history of _this_ project into _your_ project.
-
-The following command will create a directory called `project-name` that contains a current snapshot the code in this repo's `main` branch.
+Simply cloning this repo is a fine way to get started. The cleanest way to base your React app off of this starter is with [degit](https://www.npmjs.com/package/degit). This is likely a more preferred way because degit doesn't bring the git history of _this_ project into _your_ project. On a machine with NPM, you will need to have degit installed globally (`npm i degit -g`), then the following command will create a directory called `project-name` that contains a current snapshot the code in this repo's `main` branch. Note that this will only bring in the code &mdash; not the git history. You'll still need to run `git init`, etc.
 
 ```shell
 degit RENCI/react-starter project-name
 ```
 
-Note that this will only bring in the code &mdash; not the git history. You'll still need to run `git init`, etc.
-
 ### 🚧 Application Development
 
-You're ready to begin development. Move into your project directory, and start a local development server by running `npm start`.
-
-Note that this development environment utilizes [hot-module-replacement](https://webpack.js.org/guides/hot-module-replacement/) and [react-refresh](https://github.com/pmmmwh/react-refresh-webpack-plugin) for optimal developer experience.
+Now, that we have the base code. We're ready to install the application depdendencies and begin development. Move into the project root, and install the dependencies with `npm i`. Then start a local development server by running `npm start`. Note that this development environment utilizes [hot-module-replacement](https://webpack.js.org/guides/hot-module-replacement/) and [react-refresh](https://github.com/pmmmwh/react-refresh-webpack-plugin) for optimal developer experience. That's it!
 
 #### Environment Variables
 
-Use a `.env` file to pass environment-specific variables into the application. Use the invluded `sample.env` file as a to model to get started.
-
-Copy this `sample.env` file
+Not every UI will require environment-specific variables, but it is common, so some notes are here to get that set up in Webpack. First, we'll need to install one dependency: `dotenv-webpack`.
 
 ```shell
-cp sample.env .env
+npm i dotenv-webpack
 ```
-
-to get started with this `.env` file.
-
-**.env**
-```
-SAMPLE_VARIABLE=this-is-an-environment-variable
-```
-
-Then the environment variables can be used in the React application in the following manner.
+Next, we'll make two additions to `webpack.config.js`: (1) import this new dependency at the top of the file
 
 ```js
-const { SAMPLE_VARIABLE } = process.env
-
-console.log(SAMPLE_VARIABLE) // this-is-an-environment-variable
+const DotenvPlugin = require('dotenv-webpack')
 ```
+
+and (2) add the plugin to the `plugins` array.
+
+```js
+const plugins = [
+  // ...
+  new DotenvPlugin(),
+]
+```
+
+All done! Now, Webpack will look for the `.env` file for environment variables to feed into the application. A typical `.env` file might look something like the following.
+
+```shell
+# .env
+API_PORT=3000
+```
+
+Then the environment variables will populate the `process.env` object in your React application. See the [dotenv-webpack documentation](https://github.com/mrsteele/dotenv-webpack#readme) for additional customization. Note that it is often desirable to add `.env` to your `.gitignore` file.
 
 ### 🎁 Building for Production
 
-To build a production-ready `create-renci-app` application, run `npm run build` from the project directory. the bundled files will be exported to the `dist` directory.
+To build a production-ready React app from this starter, run `npm run build` from the project root directory. The bundled files will be exported to the `dist` directory.
 
 To build an easily debuggable production build, use `npm run build-dev`.
 
