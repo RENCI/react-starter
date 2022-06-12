@@ -89,6 +89,7 @@ module.exports = {
     client: {
       overlay: false,
     },
+    historyApiFallback: true,
     static: path.resolve(__dirname, 'dist'),
     setupMiddlewares: (middlewares, devServer) => {
       if (!devServer) {
