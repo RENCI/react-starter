@@ -21,7 +21,7 @@ Now, that we have the base code. We're ready to install the application depdende
 Not every UI will require environment-specific variables, but it is common, so some notes are here to get that set up in Webpack. First, we'll need to install one dependency: `dotenv-webpack`.
 
 ```shell
-npm i dotenv-webpack
+npm i dotenv-webpack -D
 ```
 Next, we'll make two additions to `webpack.config.js`: (1) import this new dependency at the top of the file
 
