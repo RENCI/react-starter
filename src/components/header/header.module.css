@@ -1,0 +1,39 @@
+.appHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(166,198,231);
+  background: linear-gradient(
+    210deg,
+    #fff,
+    #ccc
+  );
+  color: #222;
+  container-type: inline-size;
+  width: 100%;
+}
+
+.overlay {
+  margin: 2rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: #fff2;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(65deg);
+  }
+  100% {
+    transform: rotate(60deg);
+  }
+}
+
+.reactLogo {
+  animation: spin infinite 1000ms ease-out;
+}

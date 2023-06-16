@@ -1,0 +1,13 @@
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(
+    210deg,
+    #444,
+    #111
+  );
+  padding: 1rem;
+  color: #ddd;
+}

@@ -1,12 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,300;0,500;1,700&display=swap');
+
 :root {
   --color-bg: #eee;
   --color-text: #222;
   
-  // RENCI Color Palette
   --color-renci: #00758d;
   --color-unc: #4b9cd3;
 
-  // UNC Color Palette
   --color-unc-carolina-blue: #4b9cd3;
   --color-unc-navy: #13294b;
   --color-unc-black: #151515;
@@ -28,38 +28,43 @@
 
 body {
   margin: 0;
-  font-family: sans-serif;
-  font-size: 10pt;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 13pt;
 }
 
 #root {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: stretch;
   min-height: 100vh;
-  background: linear-gradient(120deg, var(--color-bg), var(--color-unc-campus-sandstone));
+  background-color: #fff;
 }
 
-.title {
-  font-weight: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  33% {
-    transform: rotate(65deg);
-  }
-  100% {
-    transform: rotate(60deg);
+/* 
+@media (prefers-color-scheme: dark) {
+  #root {
+    background-color: #000;
+    color: #fff;
   }
 }
+ */
 
-.react-logo {
-  animation: spin infinite 1000ms ease-out;
+ main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 2rem;
+  flex: 1;
+}
+
+a {
+  color: var(--color-renci);
+  transition: filter 250ms;
+}
+
+
+a:hover {
+  filter: brightness(1.5);
 }

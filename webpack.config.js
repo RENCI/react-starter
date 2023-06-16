@@ -58,7 +58,6 @@ module.exports = {
           },
           'css-loader',
           'postcss-loader',
-          'sass-loader',
         ]
       },
       {
@@ -68,6 +67,18 @@ module.exports = {
           loader: 'babel-loader'
         }
       },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: "raw-loader",
+            options: {
+              // Pass options to marked
+              // See https://marked.js.org/using_advanced#options
+            },
+          },
+        ],
+      },      
     ]
   },
 
