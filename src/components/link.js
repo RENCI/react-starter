@@ -67,10 +67,6 @@ Link.defaultProps = {
 
 //
 
-const IconDefaultProps = {
-  size: 12,
-}
-
 const LinkIcon = ({ size, children }) => {
   return (
     <svg
