@@ -2,7 +2,7 @@
 
 This React application boilerplate contains an initial configuration common to the many of the web applications built at/by/for RENCI.
 
-The following are set up by default: Webpack 5, Babel, CSS Modules, Source Maps, Hot Module Replacement, React, Image support (png, jpg, jpeg, gif, svg, webp), and ESLint. For a more complete set of dependencies, consult the `package.json` file. In addition, this starter comes with the branding resources for RENCI and UNC, which we also often require.
+The following are set up by default: Webpack 5, Babel, CSS Modules, Source Maps, Hot Module Replacement, React, Image support (png, jpg, jpeg, gif, svg, webp), and ESLint. Basic client-side routing is configured with a couple exmaples using [Markdown](https://www.markdownguide.org/) files for content management. For a more complete set of dependencies, consult the `package.json` file. In addition, this starter comes with the branding resources for RENCI and UNC, which we also often require.
 
 ### 🚀 Get Started
 
