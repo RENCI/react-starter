@@ -37,7 +37,7 @@ MailtoLink.propTypes = { ...BaseLinkPropTypes }
 
 //
 
-export const Link = ({ nav, to, children, ...props }) => {
+export const Link = ({ nav = false, to, children, ...props }) => {
   // if this is a navigation menu link, we can bail out now.
   if (nav) {
     return <ReactNavLink to={ to } { ...props }>{ children }</ReactNavLink>    
@@ -59,10 +59,6 @@ export const Link = ({ nav, to, children, ...props }) => {
 Link.propTypes = {
   nav: PropTypes.bool,
   ...BaseLinkPropTypes
-}
-
-Link.defaultProps = {
-  nav: false,
 }
 
 //

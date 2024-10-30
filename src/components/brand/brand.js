@@ -20,6 +20,6 @@ export const Brand = ({ size, dark }) => {
 }
 
 Brand.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(Object.keys(SIZES)),
   dark: PropTypes.bool,
 }

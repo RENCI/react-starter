@@ -1,12 +1,13 @@
-const path = require('path')
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const ESLintPlugin = require('eslint-webpack-plugin')
+const path = require('path');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
-let mode = 'development'
-let target = 'web'
+let mode = 'development';
+let target = 'web';
+
 const plugins = [
   new CleanWebpackPlugin(),
   new MiniCssExtractPlugin(),
@@ -35,7 +36,7 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: 'images/[hash][ext][query]',
+    assetModuleFilename: 'images/[contenthash][ext][query]',
   },
 
   module: {
@@ -48,17 +49,28 @@ module.exports = {
         //   "asset": webpack will determine, based on file size, whether it
         //            should base-64 inline the images or import them as assets.
         //            8kb is the default cutoff, which can be changed.
-        type: 'asset',
+        type: 'asset/resource',
       },
       {
-        test: /\.(s[ac]|c)ss$/i,
+        test: /\.css$/i,
         use: [ // these load rtl
+          'style-loader',
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: 'css-loader', 
+            options: {
+              importLoaders: 1, // 1 means this also applies CSS modules on @imported resources.
+              modules: {
+                namedExport: false,
+              },
+            }
           },
-          'css-loader',
-          'postcss-loader',
-        ]
+        ],
+        include: /\.module\.css$/,
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+        exclude: /\.module\.css$/,
       },
       {
         test: /\.jsx?$/i,
